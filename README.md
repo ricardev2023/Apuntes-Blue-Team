@@ -6,6 +6,6 @@ https://ajcruz15.gitbook.io/blue-team/
 **CHANGELOG**
 <br>
 <br>
-20-08-2021 Creación del recurso.
+19-08-2021 Creación del recurso.
 <br>
 22-08-2021 Gran actualización de contenido.
