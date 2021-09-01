@@ -12,10 +12,10 @@ dispositivo físico o un software sobre un sistema operativo. En general debemos
 ## IPTABLES
 
 Es un firewall que se puede manejar por comandos o generando un script que lo haga automaticamente,  
-ya que por comandos, al volver a arrancar el equipo, no se guardan los cambios. 
+ya que por comandos, al volver a arrancar el equipo, no se guardan los cambios.
 
-El orden en el que se ponen las reglas de firewall es determinante. Normalmente cuando hay que decidir   
-que se hace con un paquete se va comparando con cada regla del firewall hasta que se encuentra una que le afecta \(match\), y se hace lo que dicte esta regla \(aceptar o denegar\); después de eso **NO SE MIRARÁN MÁS REGLAS** para ese paquete. 
+El orden en el que se ponen las reglas de firewall es determinante. Normalmente cuando hay que decidir  
+que se hace con un paquete se va comparando con cada regla del firewall hasta que se encuentra una que le afecta \(match\), y se hace lo que dicte esta regla \(aceptar o denegar\); después de eso **NO SE MIRARÁN MÁS REGLAS** para ese paquete.
 
 Por lo tanto, se van poniendo reglas \(limitaciones y permisos\) de abajo arriba, es decir limitamos abajo todo y arriba vamos permitiendo lo que consideramos necesario.
 
@@ -32,44 +32,44 @@ Existen varios tipos de reglas:
 Las reglas se implementan con los siguientes comandos:
 
 `iptables -t [-A/-C/-D/...] [especificaciones]`  
- `-t` --&gt; tabla a la que afecta \(filter por defecto, NAT o mangle\)  
+`-t` --&gt; tabla a la que afecta \(filter por defecto, NAT o mangle\)  
 **Argumentos**:  
- `-A` --&gt; añade una regla \(INPUT / OUTPUT / FORWARD / PREROUTING / POSTROUTING\)  
- `-C` --&gt; comprueba que existe una regla   
- `-D` --&gt; elimina una regla \(para trabajar con comandos\)  
- `-I` --&gt; inserta una regla en una linea \(para trabajar con comandos\)  
- `-R` --&gt; reemplaza una regla por otra \(para trabajar por comandos\)  
- `-E` --&gt; renombra una cadena de comandos \(para trabajar por comandos\)  
- `-N` --&gt; nueva cadena \(para trabajar por comandos\)  
- `-L` --&gt; lista las reglas existentes de filter \(se utiliza con -n siempre\)  
- `-S` --&gt; lista las reglas existentes.   
- `-F` --&gt; limpia las tablas de reglas.  
- `-X` --&gt; elimina las cadenas de comandos  
- `-Z` --&gt; limpia las estadisticas  
- `-P` --&gt; marca la politica por defecto de una pila \(ACCEPT / DROP\)  
-        Si es **ACCEPT**, se deben declarar al inicio  
-        Si es **DROP**, se deben declarar al final.  
-  
+`-A` --&gt; añade una regla \(INPUT / OUTPUT / FORWARD / PREROUTING / POSTROUTING\)  
+`-C` --&gt; comprueba que existe una regla  
+`-D` --&gt; elimina una regla \(para trabajar con comandos\)  
+`-I` --&gt; inserta una regla en una linea \(para trabajar con comandos\)  
+`-R` --&gt; reemplaza una regla por otra \(para trabajar por comandos\)  
+`-E` --&gt; renombra una cadena de comandos \(para trabajar por comandos\)  
+`-N` --&gt; nueva cadena \(para trabajar por comandos\)  
+`-L` --&gt; lista las reglas existentes de filter \(se utiliza con -n siempre\)  
+`-S` --&gt; lista las reglas existentes.  
+`-F` --&gt; limpia las tablas de reglas.  
+`-X` --&gt; elimina las cadenas de comandos  
+`-Z` --&gt; limpia las estadisticas  
+`-P` --&gt; marca la politica por defecto de una pila \(ACCEPT / DROP\)  
+Si es **ACCEPT**, se deben declarar al inicio  
+Si es **DROP**, se deben declarar al final.
+
 **Parametros**:  
- `-s` --&gt; source \(fuente\) IP o red \(IP + Subred\)  
- `-d` --&gt; destiny \(destino\) IP o red \(IP + Subred\)  
- `-p` --&gt; protocolo \(TCP / UDP / ICMP\)  
- `--dport` --&gt; puerto de destino  
- `--sport` --&gt; puerto de origen  
- `-j` --&gt; accion  
- `ACCEPT` --&gt; acepta la conexion.  
- `LOG` --&gt; acepta la conexion pero la loguea en /var/log/syslog.  
- `REJECT` --&gt; la deniega y lo loguea en syslog.  
- `DROP` --&gt; la deniega.  
- `REDIRECT` --&gt; redirecciona trafico entrante de un puerto a otro. PREROUTING \(`--to-port [puerto]`\)  
- `MASQUERADE` --&gt; SOLO NAT. las ips salen a internet con la IP publica del router. POSTROUTING.  
- `DNAT` --&gt; SOLO NAT. Permite trafico exterior a una IP de la red.`--to [IP:PUERTO] --dport [PUERTO destino]` Comprueba la tabla NAT y si no lo encuentra, lo manda al puerto redirigido.  
- `-i` --&gt; interfaz de entrada \(INPUT / FORWARD / PREROUTING\)  
- `-o` --&gt; interfaz de salida \(OUTPUT / POSTROUTING\)
+`-s` --&gt; source \(fuente\) IP o red \(IP + Subred\)  
+`-d` --&gt; destiny \(destino\) IP o red \(IP + Subred\)  
+`-p` --&gt; protocolo \(TCP / UDP / ICMP\)  
+`--dport` --&gt; puerto de destino  
+`--sport` --&gt; puerto de origen  
+`-j` --&gt; accion  
+`ACCEPT` --&gt; acepta la conexion.  
+`LOG` --&gt; acepta la conexion pero la loguea en /var/log/syslog.  
+`REJECT` --&gt; la deniega y lo loguea en syslog.  
+`DROP` --&gt; la deniega.  
+`REDIRECT` --&gt; redirecciona trafico entrante de un puerto a otro. PREROUTING \(`--to-port [puerto]`\)  
+`MASQUERADE` --&gt; SOLO NAT. las ips salen a internet con la IP publica del router. POSTROUTING.  
+`DNAT` --&gt; SOLO NAT. Permite trafico exterior a una IP de la red.`--to [IP:PUERTO] --dport [PUERTO destino]` Comprueba la tabla NAT y si no lo encuentra, lo manda al puerto redirigido.  
+`-i` --&gt; interfaz de entrada \(INPUT / FORWARD / PREROUTING\)  
+`-o` --&gt; interfaz de salida \(OUTPUT / POSTROUTING\)
 
 ### EJEMPLO DE DESPLIEGUE
 
- 1- **Generar archivo iptables.sh**
+1- **Generar archivo iptables.sh**
 
 ```text
 #Esta primera linea permite que el trafico que llega a la tarjeta de red se 
@@ -112,11 +112,11 @@ iptables -P FORWARD DROP
 iptables-save > /etc/iptables.up.rules
 ```
 
-2. **Cambiamos los permisos de iptables.sh**
+1. **Cambiamos los permisos de iptables.sh**
 
 `chmod 770 iptables.sh`
 
-3. **Para ejecutar el firewall ejecutamos como cualquier script.**
+1. **Para ejecutar el firewall ejecutamos como cualquier script.**
 
 `./iptables.sh`
 

@@ -37,11 +37,7 @@ fdisk /dev/sdd #repetimos el proceso
 * Por ultimo hay que montarlo, por lo que: `mkdir /mnt/raid5 #le doy un lugar caracteristico donde montarlo` `mount /dev/md0 /mnt/raid5`  
 * Añadimos el volumen Raid5 al archivo /etc/fstab para que arranque al inicio. Para ello, utilizamos el UUID para evitar que si el sistema cambie el nombre del disco no inicie el equipo. `blkid #Obtenemos el UUID del disco` `nano /etc/fstab`  
 * Para comprobar el estado del Raid-5 hacemos:  `cat /proc/mdstat.`  En caso de que aparezca como \(auto-read-only\) tras reiniciar, hay que hacer lo siguiente `--readwrite /dev/md0`  
-* Podemos agregar un disco:  
-  `mdadm --manage /dev/md0 --add /dev/sdf1 #este disco queda de repuesto por si alguno se estropea.`
-
-* Podemos simular que un disco falle:  
-  `mdadm --manage /dev/md0 --fail /dev/sdb1 #si falla un disco entra automaticamente el disco spare si lo hay.`
-
+* Podemos agregar un disco: `mdadm --manage /dev/md0 --add /dev/sdf1 #este disco queda de repuesto por si alguno se estropea.`
+* Podemos simular que un disco falle: `mdadm --manage /dev/md0 --fail /dev/sdb1 #si falla un disco entra automaticamente el disco spare si lo hay.`
 * Si tengo un disco fallido, tengo que sacarlo `mdadm --manage /dev/md0 --remove /dev/sdb1`
 

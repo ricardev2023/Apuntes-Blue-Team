@@ -34,19 +34,19 @@ Tambien existe el **RSH** que funciona exactamente igual que el **SSH** pero con
 ## COMANDOS
 
 `ssh [usuario]@[ip privada destino]` --&gt; Permite acceso con el usuario en la maquina destino  
- `-p` --&gt; indica el puerto de entrada
+`-p` --&gt; indica el puerto de entrada
 
 **SSH-KEYGEN** --&gt; genera una contraseña para el acceso. Va de la mano con:  
- `-t` --&gt; tipo de cifrado \(rsa por ejemplo\)  
- `-b` --&gt; cantidad de bites de la clave \(normalmente de 2048 o 3072\)
+`-t` --&gt; tipo de cifrado \(rsa por ejemplo\)  
+`-b` --&gt; cantidad de bites de la clave \(normalmente de 2048 o 3072\)
 
 **SSH-COPY-ID** --&gt; permite copiar la clave publica de un usuario en otra maquina.  
- `-i [clave.pub]` --&gt; archivo de id  
- `ssh-copy-id -i clave.pub ricardo@192.168.0.19 -p 22 #es un buen ejemplo`
+`-i [clave.pub]` --&gt; archivo de id  
+`ssh-copy-id -i clave.pub ricardo@192.168.0.19 -p 22 #es un buen ejemplo`
 
 ## ACCEDER REMOTAMENTE CON CERTIFICADO SSH
 
-El acceso a un equipo remoto con certificado SSH es igual de sencillo que sin él. Lo único que se debe tener es la clave pública del host al que queremos acceder en el fichero: `/home/usuario/.ssh/known_hosts` 
+El acceso a un equipo remoto con certificado SSH es igual de sencillo que sin él. Lo único que se debe tener es la clave pública del host al que queremos acceder en el fichero: `/home/usuario/.ssh/known_hosts`
 
 Si todo está correctamente configurado, obtendremos acceso sin necesidad de introducir credenciales.
 

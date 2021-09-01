@@ -6,18 +6,17 @@ description: Introducción al servicio VPN y configuración de dicho servicio co
 
 ## SERVICIO VPN
 
-**Red Privada Virtual**, en español, son un tipo de red en el que se crea una extensión de una red privada   
+**Red Privada Virtual**, en español, son un tipo de red en el que se crea una extensión de una red privada  
 para su acceso desde Internet.
 
 Gracias a una conexión VPN, podemos establecer contacto con máquinas que estén alojadas en nuestra red local \(u otras redes locales\) de forma totalmente segura, ya que la conexión que se establece entre ambas máquinas viaja totalmente cifrada, es como si desde nuestro equipo conectado a Internet estableciésemos un túnel privado y seguro hasta nuestro hogar o hasta nuestra oficina, con el que podremos comunicarnos sin temer que nuestros datos sean vulnerables.
 
-  
 Podemos resumir los casos prácticos en los siguientes:
 
-- Acceder a una red de trabajo o de casa mientras se está de viaje.  
-- Esconder los datos de navegación.  
-- Entrar en sitios con bloqueo geográfico.  
-- Evitar la censura en Internet.
+* Acceder a una red de trabajo o de casa mientras se está de viaje.  
+* Esconder los datos de navegación.  
+* Entrar en sitios con bloqueo geográfico.  
+* Evitar la censura en Internet.
 
 Podemos instalar la aplicación para crear un servidor VPN:  
 `apt install openvpn`  
@@ -42,9 +41,8 @@ En Linux se utiliza el **OpenVPN** que utiliza el puerto 1194 por defecto. Es im
 ## CONFIGURAR SERVIDOR OPENVPN
 
 * `mkdir /etc/openvpn/ssl/` 
-* `cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz   /etc/openvpn/`
-
-* Extraemos el server.conf con gunzip `gunzip server.conf.gz`  
+* `cp /usr/share/doc/openvpn/examples/sample-config-files/server.conf.gz /etc/openvpn/`
+* Extraemos el server.conf con gunzip `gunzip server.conf.gz`
 * `cp /usr/share/doc/openvpn/examples/sample-keys/ca.crt  /etc/openvpn/ssl` `cp /usr/share/doc/openvpn/examples/sample-keys/server.key  /etc/openvpn/ssl` `cp /usr/share/doc/openvpn/examples/sample-keys/server.crt.gz  /etc/openvpn/ssl` `cp /usr/share/doc/openvpn/examples/sample-keys/dh2048.pem /etc/openvpn/ssl` 
 * HASTA AQUI SOLO HEMOS PUESTO LOS ARCHIVOS EN UNA RUTA MAS COMODA. 
 * Configuramos server.conf 

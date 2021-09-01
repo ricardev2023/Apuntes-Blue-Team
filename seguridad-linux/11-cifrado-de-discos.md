@@ -10,8 +10,8 @@ description: Introducción al cifrado de discos en Linux
 
 `apt install cryptsetup` --&gt; programa mas utilizado en linux para cifrar discos. se encarga de encriptar/desencriptar los datos escritos en un dispositivo de almacenamiento.
 
-El cifrado a nivel de disco duro garantiza que los archivos siempre se almacenen en el disco de forma   
-cifrada. Los archivos solo están disponibles para poder ser leídos mientras el sistema está en ejecución   
+El cifrado a nivel de disco duro garantiza que los archivos siempre se almacenen en el disco de forma  
+cifrada. Los archivos solo están disponibles para poder ser leídos mientras el sistema está en ejecución  
 y desbloqueado por uno de los usuarios con acceso a la clave de descifrado. Una persona no autorizada que intente acceder al contenido del disco, solo encontrará datos confusos, en lugar de los archivos reales.
 
 Como siempre que trabajamos en un disco duro empezamos particionando \(fdisk /dev/\[disco\]\)
@@ -21,12 +21,12 @@ Como siempre que trabajamos en un disco duro empezamos particionando \(fdisk /de
 ## PARÁMETROS DE CRYPTSETUP
 
 `-c` --&gt; permite elegir el tipo de cifrado:  
- **aes-cbc-essiv:sha256** --&gt; por defecto  
- **aes-xts-plain64** --&gt; para trabajar con lucks
+**aes-cbc-essiv:sha256** --&gt; por defecto  
+**aes-xts-plain64** --&gt; para trabajar con lucks
 
 `-s` --&gt; tamaño de clave. \(por defecto 512 bits\)
 
-`-h` --&gt; algoritmo de hash utilizado \(sha256 por defecto\)  
+`-h` --&gt; algoritmo de hash utilizado \(sha256 por defecto\)
 
 `-y` --&gt; permite verificar la contraseña pidiendola dos veces.
 

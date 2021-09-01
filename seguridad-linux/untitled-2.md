@@ -8,7 +8,7 @@ description: Introducción al sistema DNS y a su configuración en sistemas Linu
 
 DNS son las iniciales de Domain Name System \(sistema de nombres de dominio\) y es una tecnología basada en una base de datos que sirve para resolver nombres en las redes, es decir, para conocer la dirección IP de la máquina donde está alojado el dominio al que queremos acceder.
 
-Por lo tanto, el DNS es un sistema que sirve para traducir los nombres en la red, y está compuesto por   
+Por lo tanto, el DNS es un sistema que sirve para traducir los nombres en la red, y está compuesto por  
 tres partes con funciones bien diferenciadas:
 
 * **Cliente DNS**: está instalado en el cliente \(es decir, nosotros\) y realiza peticiones de resolución de  nombres a los servidores DNS. 
@@ -26,7 +26,7 @@ Se puede poner un DNS **master** y otro **slave** \(esclavo\) en el que se repli
 
 Se puede montar un **DNS interno** descargando el siguiente paquete:
 
- `apt-get install bind9 #es el mas conocido`
+`apt-get install bind9 #es el mas conocido`
 
 ## ARCHIVOS RELEVANTES
 
@@ -34,11 +34,11 @@ Se puede montar un **DNS interno** descargando el siguiente paquete:
 
 `listen-on-port 53 {127.0.0.1, 192.168.0.18;}; #Escucha en puerto 53 con la IP de host y del servidor.`
 
- `allow-query {192.168.0.1/24} #Que maquinas pueden utilizar el servicio DNS`
+`allow-query {192.168.0.1/24} #Que maquinas pueden utilizar el servicio DNS`
 
- `allow-transfer {192.168.1.25;}; #Permite la replicacion en el servidor esclavo (192.168.1.25)`
+`allow-transfer {192.168.1.25;}; #Permite la replicacion en el servidor esclavo (192.168.1.25)`
 
- `forwarders {IP} #IP de un DNS externo que si no se encuentra en el sistema, mande la solicitud al exterior.` 
+`forwarders {IP} #IP de un DNS externo que si no se encuentra en el sistema, mande la solicitud al exterior.`
 
 ```text
 #Estructura de un archivo de configuración DNS.
@@ -49,7 +49,7 @@ Se puede montar un **DNS interno** descargando el siguiente paquete:
  file "/etc/bind/db.empresa.local.host";
  notify yes;
  };
- 
+
  //Zona Inversa --> Zona en la que se resuelven IP a dominio.
  Zone "1.168.192.in-addr.arpa"{
  type master;

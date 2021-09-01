@@ -15,7 +15,7 @@ Tiene muchas opciones para obtener informacion muy variada.
 ## COMANDOS
 
 **AC** --&gt; me permite saber las horas totales que el usuario ha estado logado.  
- `-d` --&gt; me lo divide por días.
+`-d` --&gt; me lo divide por días.
 
 **SA** --&gt; permite obtener informacion de los comandos utilizados por un usuario.
 
@@ -26,8 +26,8 @@ Tiene muchas opciones para obtener informacion muy variada.
 * col 5: uso de CPU
 * col 6: comando.
 
- `-u` --&gt; lo divide por usuarios.  
- `-c` --&gt; muestra los datos en porcentajes.
+  `-u` --&gt; lo divide por usuarios.  
+  `-c` --&gt; muestra los datos en porcentajes.
 
 **LASTCOMM** --&gt; permite ver los ultimos procesos de un usuario.
 
@@ -35,7 +35,7 @@ Tiene muchas opciones para obtener informacion muy variada.
 
 **ACCTOFF** --&gt; permite desactivar procesos de un usuario
 
-**LASTB** --&gt;  muestra un listado de los ultimos usuarios que se han logado.
+**LASTB** --&gt; muestra un listado de los ultimos usuarios que se han logado.
 
 ## REFERENCIAS
 
