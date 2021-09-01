@@ -3,6 +3,7 @@ description: Inicio
 ---
 
 # Presentación
+                                                     \(No duden en enviar propuestas y correcciones\)_
 
 Esta página incluye los apuntes que tomé sobre la Seguridad y gestión de servidores Linux durante un curso orientado a la **certificación LPIC-1**. En principio cubren todos los contenidos en ésta temática de dicha certificación, durante el año 2018.
 
