@@ -2,12 +2,12 @@
 
 ## PROTOCOLO SFTP
 
-SFTP transmite información a través de Secure Shell \(SSH\) para establecer una conexión segura y proporcionarle a las organizaciones un nivel más alto de protección en las transferencias de archivos. Esto se debe a que SFTP usa encriptación generada por algoritmos para mover la información de forma segura a su servidor, y mantener los archivos ilegibles durante el proceso, y además la autenticación evita el acceso no autorizado a los archivos durante la operación.
+SFTP transmite información a través de Secure Shell (SSH) para establecer una conexión segura y proporcionarle a las organizaciones un nivel más alto de protección en las transferencias de archivos. Esto se debe a que SFTP usa encriptación generada por algoritmos para mover la información de forma segura a su servidor, y mantener los archivos ilegibles durante el proceso, y además la autenticación evita el acceso no autorizado a los archivos durante la operación.
 
-Si bien SFTP no requiere autenticación de doble factor, el usuario tiene la opción de solicitar tanto una ID  
+Si bien SFTP no requiere autenticación de doble factor, el usuario tiene la opción de solicitar tanto una ID\
 de usuario como una contraseña, así como claves SSH, para una conexión más segura. Generar claves SSH ayuda a evitar que impostores o hackers se conecten al servidor. Los pares de claves SSH se deben generar con anticipación.
 
-SFTP da la opción de realizar una gran variedad de tareas para gestionar archivos sensibles, desde eliminar archivos hasta reanudar transferencias pausadas. A diferencia de FTP sobre SSL/TLS \(FTPS\), SFTP solo necesita un único número de puerto \(puerto 22\) para establecer una conexión con un servidor.
+SFTP da la opción de realizar una gran variedad de tareas para gestionar archivos sensibles, desde eliminar archivos hasta reanudar transferencias pausadas. A diferencia de FTP sobre SSL/TLS (FTPS), SFTP solo necesita un único número de puerto (puerto 22) para establecer una conexión con un servidor.
 
 ## PAQUETE DE INSTALACION
 
@@ -15,21 +15,21 @@ SFTP da la opción de realizar una gran variedad de tareas para gestionar archiv
 
 ## CONFIGURACION DEL SERVIDOR
 
-**/etc/vsftpd.conf** --&gt; descomentar `write enable= YES`  
-descomentar `local_umask= 022`  
-descomentar `chroot_local_user=YES`  
+**/etc/vsftpd.conf** --> descomentar `write enable= YES`\
+descomentar `local_umask= 022`\
+descomentar `chroot_local_user=YES`\
 descomentar `chroot_list_file=/etc/vsftpd.chroot_list`
 
-**/etc/vsftpd.chroot\_list** --&gt; Este archivo no existe, hay que crearlo.  
+**/etc/vsftpd.chroot\_list** --> Este archivo no existe, hay que crearlo.\
 Es una lista de los usuarios con acceso al sftp.
 
 VAMOS A GENERAR UNA ESTRUCTURA DE DATOS PARA UTILIZAR POR LOS USUARIOS DEL FTP.
 
-`mkdir /home/ftp` --&gt; Hay que crear una carpeta cualquiera en una ruta donde todos tengan permisos para compartirla.
+`mkdir /home/ftp` --> Hay que crear una carpeta cualquiera en una ruta donde todos tengan permisos para compartirla.
 
-`mkdir /home/ftp/ftpdir` --&gt; Por seguridad se les da permisos en otra carpeta dentro.
+`mkdir /home/ftp/ftpdir` --> Por seguridad se les da permisos en otra carpeta dentro.
 
-`mkdir /home/ftp/ftpdir/usuarioftp` --&gt; Esta es la carpeta personal compartida del usuarioftp.
+`mkdir /home/ftp/ftpdir/usuarioftp` --> Esta es la carpeta personal compartida del usuarioftp.
 
 `useradd -g ftp -d /home/ftp/ftpdir/ -c "usuarioftp" usuarioftp`
 
@@ -55,17 +55,18 @@ Hasta este momento lo que hemos configurado es un servidor ftp normal al que se 
 
 Ahora vamos a darle forma para tener una autenticacion con SSL:
 
-`mkdir /etc/vsftpd` --&gt; Para generar dentro el certificado autofirmado
+`mkdir /etc/vsftpd` --> Para generar dentro el certificado autofirmado
 
 `openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout vsftpd.pem -out vsftpd.pem`
 
-`/etc/vsftp.conf --> ssl_enable= YES`  
-`rsa_cert_file=directorio_donde_esta_el_certificado`  
+`/etc/vsftp.conf --> ssl_enable= YES`\
+`rsa_cert_file=directorio_donde_esta_el_certificado`\
 `rsa_private_key_file=lo_mismo_que_arriba`
 
 CON ESTO YA TENDRIA MI SFTP TRABAJANDO CON CERTIFICADO AUTOFIRMADO.
 
 ## REFERENCIAS
 
-{% embed url="https://geekland.eu/crear-servidor-sftp-enjaulado/" caption="Para información pormenorizada pinche en el enlace externo." %}
-
+{% embed url="https://geekland.eu/crear-servidor-sftp-enjaulado/" %}
+Para información pormenorizada pinche en el enlace externo.
+{% endembed %}

@@ -14,30 +14,31 @@ Tiene muchas opciones para obtener informacion muy variada.
 
 ## COMANDOS
 
-**AC** --&gt; me permite saber las horas totales que el usuario ha estado logado.  
-`-d` --&gt; me lo divide por días.
+**AC** --> me permite saber las horas totales que el usuario ha estado logado.\
+`-d` --> me lo divide por días.
 
-**SA** --&gt; permite obtener informacion de los comandos utilizados por un usuario.
+**SA** --> permite obtener informacion de los comandos utilizados por un usuario.
 
 * col 1: num de veces que se utiliza el comando
 * col 2: tiempo en minutos de sistema que ha permanecido activo
 * col 3: tiempo en minutos de procesador que ha permanecido activo
-* col 4: 0avio. Nunca cambia \(buscar significado\)
+* col 4: 0avio. Nunca cambia (buscar significado)
 * col 5: uso de CPU
-* col 6: comando.
+*   col 6: comando.
 
-  `-u` --&gt; lo divide por usuarios.  
-  `-c` --&gt; muestra los datos en porcentajes.
+    `-u` --> lo divide por usuarios.\
+    `-c` --> muestra los datos en porcentajes.
 
-**LASTCOMM** --&gt; permite ver los ultimos procesos de un usuario.
+**LASTCOMM** --> permite ver los ultimos procesos de un usuario.
 
-**ACCTON** --&gt; permite activar procesos de un usuario
+**ACCTON** --> permite activar procesos de un usuario
 
-**ACCTOFF** --&gt; permite desactivar procesos de un usuario
+**ACCTOFF** --> permite desactivar procesos de un usuario
 
-**LASTB** --&gt; muestra un listado de los ultimos usuarios que se han logado.
+**LASTB** --> muestra un listado de los ultimos usuarios que se han logado.
 
 ## REFERENCIAS
 
-{% embed url="https://blog.desdelinux.net/monitorear-actividad-de-usuarios-con-comando-acct/" caption="Para información pormenorizada pinche en el enlace externo." %}
-
+{% embed url="https://blog.desdelinux.net/monitorear-actividad-de-usuarios-con-comando-acct/" %}
+Para información pormenorizada pinche en el enlace externo.
+{% endembed %}
